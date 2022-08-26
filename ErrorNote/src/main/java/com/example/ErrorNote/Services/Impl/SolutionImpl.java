@@ -5,10 +5,7 @@ import com.example.ErrorNote.Repositories.SolutionRepository;
 import com.example.ErrorNote.Services.SolutionService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 public class SolutionImpl implements SolutionService {
-
     @Autowired
     SolutionRepository solutionRepository;
     @Override
@@ -24,7 +21,7 @@ public class SolutionImpl implements SolutionService {
                     s.setTemps(solution.getTemps());
                     s.setRessource(solution.getRessource());
                     return solutionRepository.save(s);
-                } ).orElseThrow(() -> new RuntimeException("Cette solution n'existe pas pour le moment !"));
+                } ).orElseThrow(() -> new RuntimeException("Cette solution n'existe pas !"));
     }
 
     @Override

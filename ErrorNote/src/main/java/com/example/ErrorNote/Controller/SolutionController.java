@@ -2,14 +2,11 @@ package com.example.ErrorNote.Controller;
 
 import com.example.ErrorNote.Model.Solution;
 import com.example.ErrorNote.Services.SolutionService;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@Data
-@RequestMapping("/solution")
 public class SolutionController {
+
     @Autowired
     SolutionService solutionService;
 
