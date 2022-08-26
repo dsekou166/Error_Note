@@ -1,4 +1,10 @@
 package com.example.ErrorNote.Repositories;
 
-public class SolutionRepository {
+import com.example.ErrorNote.Model.Solution;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SolutionRepository extends JpaRepository<Solution, Long> {
+
 }
