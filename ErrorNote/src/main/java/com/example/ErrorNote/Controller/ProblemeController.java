@@ -1,6 +1,7 @@
 package com.example.ErrorNote.Controller;
 
 import com.example.ErrorNote.Model.Probleme;
+import com.example.ErrorNote.Model.User;
 import com.example.ErrorNote.Services.ProblemeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Probleme")
+@RequestMapping("/probleme")
 @AllArgsConstructor
 public class ProblemeController {
     @Autowired
     ProblemeService ProblemeService;
 
 
-    @PostMapping("/Creer")
+    @PostMapping("/creer")
 
-    public Probleme create(Probleme Probleme) {
+    public Probleme create(@RequestBody Probleme Probleme) {
 
         return ProblemeService.creer(Probleme);
     }

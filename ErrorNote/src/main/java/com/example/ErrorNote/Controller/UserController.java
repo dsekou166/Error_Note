@@ -5,21 +5,23 @@ import com.example.ErrorNote.Model.User;
 import com.example.ErrorNote.Services.ProblemeService;
 import com.example.ErrorNote.Services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/User")
-@AllArgsConstructor
+@RequestMapping("/user")
 public class UserController {
-    private final UserService UserService;
 
-    @PostMapping("/Creer")
+    @Autowired
+    UserService UserService;
 
-    public User create(User User) {
+    @PostMapping("/creer")
 
-        return UserService.creer(User);
+    public User creer(@PathVariable User user) {
+
+        return UserService.creer(user);
     }
 
     @GetMapping("/afficher")

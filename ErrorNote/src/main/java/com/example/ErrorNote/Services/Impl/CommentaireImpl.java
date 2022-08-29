@@ -20,13 +20,13 @@ public class CommentaireImpl implements CommentaireService {
         return commentaireRepository.save(commentaire);
     }
     @Override
-    public List<Commentaire> lister(){
-        return commentaireRepository.findAll();
+    public String Supprimer(Long id_commentaire) {
+        return "Commentaire supprimée avec succes";
     }
 
     @Override
-    public String Supprimer(Long id_commentaire) {
-        return "Commentaire supprimée avec succes";
+    public List<Commentaire> lire() {
+        return commentaireRepository.findAll();
     }
 
 }

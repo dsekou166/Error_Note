@@ -3,8 +3,12 @@ package com.example.ErrorNote.Services.Impl;
 import com.example.ErrorNote.Model.Solution;
 import com.example.ErrorNote.Repositories.SolutionRepository;
 import com.example.ErrorNote.Services.SolutionService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+@AllArgsConstructor
 public class SolutionImpl implements SolutionService {
     @Autowired
     SolutionRepository solutionRepository;

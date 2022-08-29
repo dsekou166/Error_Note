@@ -2,9 +2,13 @@ package com.example.ErrorNote.Controller;
 
 import com.example.ErrorNote.Model.Solution;
 import com.example.ErrorNote.Services.SolutionService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/solution")
+@AllArgsConstructor
 public class SolutionController {
 
     @Autowired

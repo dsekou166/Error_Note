@@ -1,14 +1,18 @@
 package com.example.ErrorNote.Model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+
 @Entity
 @Table(name = "user")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
 
@@ -20,7 +24,7 @@ public class User {
     private String contact;
     private String role;
     private String email;
-    private String Mpd;
+    private String mpd;
 
     @OneToMany (mappedBy ="user")
     List<Probleme> probleme = new ArrayList<>();
