@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class CommentaireController {
     @Autowired
     CommentaireService commentaireService;
-    @PostMapping(path = "/Creer")
+    @PostMapping(path = "/creer")
     @ResponseStatus(HttpStatus.CREATED)
     Commentaire add(@RequestBody Commentaire commentaire){
         return commentaireService.Creer(commentaire);
