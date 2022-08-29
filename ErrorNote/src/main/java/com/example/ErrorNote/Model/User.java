@@ -1,5 +1,6 @@
 package com.example.ErrorNote.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class User {
     private String mpd;
     @Enumerated(EnumType.STRING)
     private Role role;
+
 
     @OneToMany (mappedBy ="user")
     List<Probleme> probleme = new ArrayList<>();

@@ -71,7 +71,7 @@ public class UserImpl implements UserService {
 
     @Override
     public User Seconnecter(String email, String mdp) {
-        Optional<User> user= userRepository.findByEmailAndPassword(email,mdp);
+        Optional<User> user= userRepository.findByEmailAndMpd(email,mdp);
         // TTT
         if (user.isPresent()){
             return null;
