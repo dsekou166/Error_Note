@@ -22,7 +22,7 @@ ProblemeRepository problemeRepository;
 
     @Override
     public String creer(Probleme probleme, Long id_probleme) {
-        Optional<Probleme> problemeOptional=problemeRepository.findById_probleme(probleme.getId_probleme());
+        Optional<Probleme> problemeOptional=problemeRepository.findByIdprobleme(probleme.getIdprobleme());
         if(problemeOptional.isPresent()){
             return null;
         }

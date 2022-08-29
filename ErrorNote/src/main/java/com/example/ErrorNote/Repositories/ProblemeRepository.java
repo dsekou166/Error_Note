@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface ProblemeRepository extends JpaRepository<Probleme, Long> {
 
 
-    Optional<Probleme> findById_probleme(Long id_probleme);
+    Optional<Probleme> findByIdprobleme(Long id_probleme);
     @Query(value = "SELECT * FROM probleme WHERE probleme.titre LIKE %?1%" +
             " OR probleme.description LIKE %?1%" +
             " OR probleme.technologie LIKE %?1%" +
