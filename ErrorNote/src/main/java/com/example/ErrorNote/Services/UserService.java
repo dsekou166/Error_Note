@@ -7,16 +7,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface UserService {
-    User creer(User user);
+    //methode pour admin
+    List<User> lister();
+    ///methode pour admin
+    String creer(User user,Long id_user);
+    //methode pour admin
+    String createAdmin(User user, Long id_user);
 
-    List<User> lire();
+    User modifier(User user, Long id_user);
+    String sedeconnecter();
+    User Seconnecter(String email,String mdp);
 
-    User modifier(Long id_user, User user);
-
+    ///methode pour admin
     String supprimer(Long id_user);
-
-    String connecter(User user);
-
-    String deconnecter();
 
 }

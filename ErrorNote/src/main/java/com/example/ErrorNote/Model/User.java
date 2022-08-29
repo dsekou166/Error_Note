@@ -22,9 +22,10 @@ public class User {
     private String nom;
     private String prenom;
     private String contact;
-    private String role;
     private String email;
     private String mpd;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToMany (mappedBy ="user")
     List<Probleme> probleme = new ArrayList<>();

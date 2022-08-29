@@ -1,47 +1,54 @@
 package com.example.ErrorNote.Services.Impl;
 
+import com.example.ErrorNote.Model.Etat;
 import com.example.ErrorNote.Model.Probleme;
 import com.example.ErrorNote.Repositories.ProblemeRepository;
 import com.example.ErrorNote.Services.ProblemeService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Service
 @AllArgsConstructor
 public class ProblemeImpl implements ProblemeService {
-    ProblemeRepository problemeRepository;
+    @Autowired
+ProblemeRepository problemeRepository;
+
 
     @Override
-    public Probleme creer(Probleme probleme) {
-        return problemeRepository.save(probleme);
+    public String creer(Probleme probleme, Long id_probleme) {
+        Optional<Probleme> problemeOptional=problemeRepository.findById_probleme(probleme.getId_probleme());
+        if(problemeOptional.isPresent()){
+            return null;
+        }
+        Probleme probleme1=this.problemeRepository.save(probleme);
+        probleme1.setEtat(Etat.INITIAL);
+        this.problemeRepository.save(probleme);
+        return "Probleme creer";
     }
 
     @Override
-    public List<Probleme> lire() {
-        return problemeRepository.findAll();
-    }
-
-    @Override
-    public Probleme modifier(Long id_probleme, Probleme probleme) {
+    public Probleme modifier(Probleme probleme, Long id_probleme) {
         return problemeRepository.findById(id_probleme)
-                .map(P -> {
-                    P.setTitre(probleme.getTitre());
-                    P.setDescription(probleme.getDescription());
-                    P.setTechnologie(probleme.getTechnologie());
-                    P.setMethodologie(probleme.getMethodologie());
-                    P.setEtat(probleme.getEtat());
-                    return problemeRepository.save(P);
-                }).orElseThrow(() -> new RuntimeException("Commentaire non trouvé"));
+                .map(p -> {
+                    p.setTitre(probleme.getTitre());
+                    p.setDescription(probleme.getDescription());
+                    p.setTechnologie(probleme.getTechnologie());
+                    p.setMethodologie(probleme.getMethodologie());
+                    p.setEtat(probleme.getEtat());
+                    return problemeRepository.save(p);
+                }).orElseThrow(() -> new RuntimeException("Ce Probleme n'existe pas !"));
     }
 
     @Override
-    public String supprimer(Long id_probleme) {
-        problemeRepository.deleteById(id_probleme);
-        return "Commentaire supprimer !";
+    public String supprimer(Long idprobleme) {
+        problemeRepository.deleteById(idprobleme);
+        return "Suppression effectuée avec succés";
     }
 
     @Override
@@ -51,11 +58,11 @@ public class ProblemeImpl implements ProblemeService {
             System.out.println(retrouve);
             if (retrouve.size() != 0) {
                 return retrouve;
-            } else {
-                return "Desole ce mot est introuvable";
+            }else{
+                return "Désolé ce mot est introuvable !!";
             }
         }
         return problemeRepository.findAll();
-
     }
+
 }

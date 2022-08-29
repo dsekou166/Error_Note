@@ -5,15 +5,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public interface ProblemeService {
+public interface ProblemeService {String creer(Probleme probleme, Long idprobleme);
+    Probleme modifier(Probleme probleme, Long idprobleme);
 
-    Probleme creer(Probleme probleme);
-
-    List<Probleme> lire();
-
-    Probleme modifier(Long id_probleme, Probleme probleme);
-
-    String supprimer(Long id_probleme);
+    String supprimer(Long idprobleme);
 
     Object recherche(String mot_cle);
 
