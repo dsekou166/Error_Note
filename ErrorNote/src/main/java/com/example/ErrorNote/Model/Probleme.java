@@ -18,7 +18,8 @@ public class Probleme {
     private String description;
     private String technologie;
     private String methodologie;
-    private String etat;
+    @Enumerated(EnumType.STRING)
+    private Etat etat;
 
     @ManyToOne
     @JoinColumn(name = "User_Problème")
