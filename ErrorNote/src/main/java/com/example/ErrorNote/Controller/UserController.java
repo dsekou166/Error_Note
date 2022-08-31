@@ -27,13 +27,13 @@ public class UserController {
             return "failed";
         }
         this.userService.Seconnecter(email,mdp);
-        return  "vous etes connectée";
+        return  "vous etes connectée avec succès";
 
     }
 
 
     @ApiOperation(value = "Creer un user")
-    @PostMapping("/add")
+    @PostMapping("/creer")
     public String add(@RequestBody User user,Long id_user){
         if( this.userService.creer(user,id_user)==null){
             return "Cet utilisateur existe deja";
