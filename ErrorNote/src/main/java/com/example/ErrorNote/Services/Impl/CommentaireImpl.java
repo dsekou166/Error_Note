@@ -17,10 +17,12 @@ public class CommentaireImpl implements CommentaireService {
 
     @Override
     public Commentaire Creer (Commentaire commentaire){
+
         return commentaireRepository.save(commentaire);
     }
     @Override
     public String Supprimer(Long id_commentaire) {
+        commentaireRepository.deleteById(id_commentaire);
         return "Commentaire supprimée avec succes";
     }
 
