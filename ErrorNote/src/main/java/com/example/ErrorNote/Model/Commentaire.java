@@ -21,4 +21,5 @@ public class Commentaire {
     @ManyToOne
     @JoinColumn(name = "Solution_commentaire")
     private Solution solution;
+
 }
