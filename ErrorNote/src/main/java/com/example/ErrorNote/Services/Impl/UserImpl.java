@@ -70,15 +70,11 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public User Seconnecter(String email, String mdp) {
-        Optional<User> user= userRepository.findByEmailAndMpd(email,mdp);
-        // TTT
-        if (user.isPresent()){
-            return null;
+    public String Seconnecter(String email, String mdp) {
+        User user = userRepository.findByEmailAndMpd(email,mdp);
+            if (user == null) return "Failed !";
+            else return "Connecté avec succès !";
         }
-        return user.get();
-
-    }
 
     //methode  Admin
     @Override

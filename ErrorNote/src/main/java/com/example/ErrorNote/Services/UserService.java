@@ -16,7 +16,7 @@ public interface UserService {
 
     User modifier(User user, Long id_user);
     String sedeconnecter();
-    User Seconnecter(String email,String mdp);
+    String Seconnecter(String email,String mdp);
 
     ///methode pour admin
     String supprimer(Long id_user);

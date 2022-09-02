@@ -19,7 +19,7 @@ public class SolutionController {
     SolutionService solutionService;
 
     @ApiOperation(value = "Creer une solution")
-    @PostMapping("/add")
+    @PostMapping("/creer")
     Solution add(@RequestBody Solution solution){
         return solutionService.creer(solution);
     }
